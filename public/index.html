@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>HELP ME</title>
+        <style>
+            * {
+                margin: 0px;
+                padding: 0px;
+                box-sizing: border-box;
+            }
+
+            body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+            }
+
+            div {
+                position:absolute;
+                display:flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                left: 310px;
+                height: 800px;
+                background-color: #f2f2f2;
+                padding: 5px;
+            }
+
+            canvas {
+                border: black 1px solid;
+            }
+
+            img {
+                position: absolute;
+                width: 225px;
+                height: 225px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <section></section>
+            <p>A and D to move.</p>
+            <p>Hold spacebar for boost.</p>
+        </div>
+        <img src="earth.png">
+        <canvas width="800px" height="800px"></canvas>
+        <script src="setup.js"></script>
+        <script src="player.js"></script>
+        <script src="enemy.js"></script>
+        <script src="sketch.js"></script>
+    </body>
+</html>
