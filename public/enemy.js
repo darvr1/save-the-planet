@@ -14,6 +14,8 @@ class Enemy {
     draw() {
         c.beginPath();
         c.arc(this.x, this.y, this.r, 2*PI, false);
+        c.fillStyle = "gray";
+        c.fill();
         c.stroke();
     }
 

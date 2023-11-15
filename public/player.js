@@ -18,7 +18,7 @@ class Player {
 
         c.beginPath();
         c.arc(this.x, this.y, this.playerSize, 2*PI, false);
-        c.fillStyle = "gray";
+        c.fillStyle = "#E0E0E0";
         c.fill();
         c.stroke();
     }
