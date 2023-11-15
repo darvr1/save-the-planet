@@ -27,7 +27,7 @@ function generateEnemy() {
 
 function shootBullet() {
     if (!gameOver) {
-        setTimeout(shootBullet, 400 - (difficultyScale * 0.1));
+        setTimeout(shootBullet, 400 - (difficultyScale * 0.135));
         bullets.push(new Bullet());
     }
 }
@@ -69,6 +69,10 @@ function animate() {
         c.fillStyle = "black";
         c.fillText("HP: " + player.hp, -380, -360);
         c.fillText("Score: " + player.score, -300, -360);
+        c.font = "18px calibri";
+        c.fillText("A or D to move", -380, 390);
+        c.fillText("Hold spacebar for boost", 170, 390);
+
         if (player.hp <= 0) {
             c.font = "40px calibri";
             c.fillText("Press anywhere to restart.", -250, 200);
