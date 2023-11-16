@@ -5,9 +5,12 @@ class Enemy {
         this.r = 10;
         this.hp = 1;
 
+        // Chooses a random (x,y) point on a 1000x1000 box
+        // keep choosing a point until (x,y) is not within 800x800 (canvas dimension)
+        // and a bit more to accomodate enemies' radii
         do {
             this.x = (Math.random() - 0.5) * (canvas.width + 200);
-            this.y = (Math.random() - 0.5) * (canvas.width + 200);
+            this.y = (Math.random() - 0.5) * (canvas.height + 200);
         } while((this.x > -450 && this.x < 450) && (this.y > -450 && this.y < 450));
     }
 
@@ -21,11 +24,12 @@ class Enemy {
 
     update() {
         this.draw();
+        // Take the enemies' angle relative to (0,0)
         this.angle = Math.atan(this.y/this.x);
         this.xSpeed = Math.cos(this.angle);
         this.ySpeed = Math.sin(this.angle);
 
-        // Flip velocities if x > 1
+        // Flip velocity sign if x > 1
         // Ensures 'enemy' move towards origin
         if (this.x > 0) {
             this.xSpeed = -this.xSpeed;

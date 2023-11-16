@@ -38,15 +38,15 @@ function animate() {
         
         // Save current transformations of the canvas
         c.save();
-        // Translate the canvas to the middle so that
-        // Point (0,0) will be at the center of the canvas
-        // Instead of top left
+        // Translate the canvas to the middle so that point (0,0)
+        // will be at the center of the canvas instead of top left
         c.translate(canvas.width / 2, canvas.height / 2);
 
         // If enemy's health is zero, remove it from the array
         for (let i = enemies.length - 1; i >= 0; i--) { 
             if (enemies[i].hp <= 0) {
                 enemies.splice(i, 1);
+                // Exponential decay
                 difficultyScale += (50 / Math.pow(Math.E, player.score / 60));
             } else {
                 enemies[i].update();
@@ -65,17 +65,17 @@ function animate() {
         player.update();
         
         // Text
-        c.font = "24px calibri";
+        c.font = "21px calibri";
         c.fillStyle = "black";
         c.fillText("HP: " + player.hp, -380, -360);
         c.fillText("Score: " + player.score, -300, -360);
-        c.font = "18px calibri";
+        c.font = "15px calibri";
         c.fillText("A or D to move", -380, 390);
-        c.fillText("Hold spacebar for boost", 170, 390);
+        c.fillText("Hold spacebar for boost", 200, 390);
 
         if (player.hp <= 0) {
-            c.font = "40px calibri";
-            c.fillText("Press anywhere to restart.", -250, 200);
+            c.font = "30px calibri";
+            c.fillText("Press anywhere to restart.", -200, 200);
         }
 
         // Revert translation
@@ -98,6 +98,7 @@ function animate() {
             gameOver = true;
         }
     }
+    // Infinite loop
     window.requestAnimationFrame(animate);
 }
 

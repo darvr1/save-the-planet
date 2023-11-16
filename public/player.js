@@ -33,10 +33,11 @@ class Bullet {
     constructor() {
         this.x = player.x;
         this.y = player.y;
-        this.xSpeed = Math.cos(player.angle);
-        this.ySpeed = Math.sin(player.angle);
         this.r = 5;
         this.hp = 1;
+        // Makes the bullet's velocity face the direction where the player is facing
+        this.xSpeed = Math.cos(player.angle);
+        this.ySpeed = Math.sin(player.angle);
     }
 
     draw() {
@@ -50,6 +51,7 @@ class Bullet {
     update() {
         this.draw()
 
+        // Destroy bullet if it's out of the screen
         if ((this.x < -450 || this.x > 450) || (this.y < -450 || this.y > 450)) {
             this.hp = 0;
         }
